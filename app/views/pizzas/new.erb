@@ -1,0 +1,18 @@
+<h1>Create new Pizza!</h1>
+
+    <%# if flash[:error].present?
+  <% flash[:error].each do |message| %>
+  <%= message %>
+  <% end %> %>
+
+
+<ol>
+<%= form_for @pizza do |f| %>
+<li><%= f.label :name %>
+<%= f.text_field :name %></li>
+<li><%= f.label :ingredients %>
+<%= f.text_field :ingredients %></li>
+<%= f.collection_select(:restaurant_id, Restaurant.all, :id, :name) %><br>
+<%= f.submit %>
+<% end %>
+</ol>
